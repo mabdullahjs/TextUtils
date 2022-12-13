@@ -25,6 +25,11 @@ const App = (props) => {
     props.showAlert("success" , "Text has been copy to clipboard");
 
   }
+  function WordCount(str) {
+    return str.split(' ')
+           .filter(function(n) { return n != '' })
+           .length;
+}
   function changing(e) {
     setText(e.target.value);
   }
@@ -54,7 +59,7 @@ const App = (props) => {
       <div className={`text-${props.mode==="light"?"dark":"light"}`}>
         <h1 className="fs-2 mt-5">Your Text Summary</h1>
       <p className="mt-1">Total Alphabets =  {text.length}</p>
-      <p>Total words = {text.split(" ").length}</p>
+      <p>Total words = {WordCount(text)}</p>
       </div>
     </div>
   );

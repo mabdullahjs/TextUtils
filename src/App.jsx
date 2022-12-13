@@ -23,18 +23,19 @@ function App() {
     if(mode === "light"){
       changeMode("dark");
       document.body.style.backgroundColor = "black"
-      showAlert("success" , "Light mode enable")
+      // showAlert("success" , "Light mode enable")
     }else{
       changeMode("light");
       document.body.style.backgroundColor = "white"
-      showAlert("success" , "Dark mode enable")
+      // showAlert("success" , "Dark mode enable")
     }
   }
+
   return (
     <div>
       <Navbar mode = {mode} func = {changeColor}/>
       <Alert alert = {alert}/>
-      <Textarea showAlert = {showAlert} mode = {mode} alert = {showAlert} />
+      <Textarea showAlert = {showAlert} mode = {mode}  />
     </div>
   );
 }
