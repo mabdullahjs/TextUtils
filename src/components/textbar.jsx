@@ -18,6 +18,10 @@ const App = (props) => {
     setText("");
     props.showAlert("success" , "Text has been cleared");
   }
+  function removeSpace() {
+    setText(text.replace(/\s+/g, ' ').trim());
+    props.showAlert("success" , "Spaces has been Removed");
+  }
   function copyText() {
     let textCopy = document.getElementById("myInput");
     textCopy.select();
@@ -44,18 +48,23 @@ const App = (props) => {
         value={text}
         placeholder="enter text"
       />
-      <Button onClick={capital} style={{ marginTop: "1rem" }} type="primary">
+      <div style={{visibility:`${text.length == 0?"hidden":"visible"}`}}>
+      <Button onClick={capital} style={{ marginTop: "1rem", marginRight:"0.5rem" }} type="primary">
         UpperCase
       </Button>
-      <Button onClick={small} style={{ marginTop: "1rem" , marginLeft:"0.5rem" }} type="primary">
+      <Button onClick={small} style={{ marginTop: "1rem" , marginLeft:"0.5rem" , marginRight:"0.5rem" }} type="primary">
         LowerCase
       </Button>
-      <Button onClick={clearText} style={{ marginTop: "1rem" , marginLeft:"0.5rem" }} type="primary">
+      <Button onClick={clearText} style={{ marginTop: "1rem" , marginLeft:"0.5rem", marginRight:"0.5rem" }} type="primary">
         ClearText
       </Button>
-      <Button onClick={copyText} style={{ marginTop: "1rem" , marginLeft:"0.5rem" }} type="primary">
+      <Button onClick={copyText} style={{ marginTop: "1rem" , marginLeft:"0.5rem", marginRight:"0.5rem" }} type="primary">
         CopyText
       </Button>
+      <Button onClick={removeSpace} style={{ marginTop: "1rem" , marginLeft:"0.5rem", marginRight:"0.5rem" }} type="primary">
+        Remove Space
+      </Button>
+      </div>
       <div className={`text-${props.mode==="light"?"dark":"light"}`}>
         <h1 className="fs-2 mt-5">Your Text Summary</h1>
       <p className="mt-1">Total Alphabets =  {text.length}</p>

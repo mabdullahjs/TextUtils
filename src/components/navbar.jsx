@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function navbar(props) {
   return (
@@ -7,10 +8,10 @@ export default function navbar(props) {
         className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Abdullah
-          </a>
-          {/* <button
+          </Link>
+          <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -20,26 +21,26 @@ export default function navbar(props) {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon" />
-          </button> */}
-          {/* <div className="collapse navbar-collapse" id="navbarNav">
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#">
                   Pricing
                 </a>
-              </li>
+              </li> */}
             </ul>
-          </div> */}
+          </div>
 
 
           <div className="form-check form-switch">
